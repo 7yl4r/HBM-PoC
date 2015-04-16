@@ -1,0 +1,186 @@
+{
+    "properties": {
+        "name": "lineplot",
+        "environment": {
+            "type": "noflo-browser"
+        }
+    },
+    "inports": {
+        "x": {
+            "process": "canvas/MakePoint_e4cpn",
+            "port": "x",
+            "metadata": {
+                "x": 756,
+                "y": 216,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "y": {
+            "process": "canvas/MakePoint_e4cpn",
+            "port": "y",
+            "metadata": {
+                "x": 756,
+                "y": 360,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "selector": {
+            "process": "dom/GetElement_sidtd",
+            "port": "selector",
+            "metadata": {
+                "x": 1044,
+                "y": 108,
+                "width": 72,
+                "height": 72
+            }
+        }
+    },
+    "outports": {
+        "canvas": {
+            "process": "canvas/Draw_t8iyl",
+            "port": "canvas",
+            "metadata": {
+                "x": 1512,
+                "y": 216,
+                "width": 72,
+                "height": 72
+            }
+        }
+    },
+    "groups": [],
+    "processes": {
+        "canvas/Draw_t8iyl": {
+            "component": "canvas/Draw",
+            "metadata": {
+                "label": "canvas/Draw",
+                "x": 1368,
+                "y": 216,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "dom/GetElement_sidtd": {
+            "component": "dom/GetElement",
+            "metadata": {
+                "label": "dom/GetElement",
+                "x": 1188,
+                "y": 144,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "canvas/Stroke_blvgj": {
+            "component": "canvas/Stroke",
+            "metadata": {
+                "label": "canvas/Stroke",
+                "x": 1188,
+                "y": 288,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "canvas/MakePath_93jv3": {
+            "component": "canvas/MakePath",
+            "metadata": {
+                "label": "canvas/MakePath",
+                "x": 1044,
+                "y": 288,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "canvas/MakePoint_e4cpn": {
+            "component": "canvas/MakePoint",
+            "metadata": {
+                "label": "canvas/MakePoint",
+                "x": 900,
+                "y": 288,
+                "width": 72,
+                "height": 72
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "dom/GetElement_sidtd",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "canvas/Draw_t8iyl",
+                "port": "canvas"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "canvas/Stroke_blvgj",
+                "port": "stroke"
+            },
+            "tgt": {
+                "process": "canvas/Draw_t8iyl",
+                "port": "commands"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "canvas/MakePath_93jv3",
+                "port": "path"
+            },
+            "tgt": {
+                "process": "canvas/Stroke_blvgj",
+                "port": "items"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "canvas/MakePoint_e4cpn",
+                "port": "point"
+            },
+            "tgt": {
+                "process": "canvas/MakePath_93jv3",
+                "port": "items"
+            },
+            "metadata": {}
+        },
+        {
+            "data": "True",
+            "tgt": {
+                "process": "canvas/Draw_t8iyl",
+                "port": "drawevery"
+            }
+        },
+        {
+            "data": "True",
+            "tgt": {
+                "process": "canvas/Draw_t8iyl",
+                "port": "clearevery"
+            }
+        },
+        {
+            "data": "2",
+            "tgt": {
+                "process": "canvas/Stroke_blvgj",
+                "port": "linewidth"
+            }
+        },
+        {
+            "data": "white",
+            "tgt": {
+                "process": "canvas/Stroke_blvgj",
+                "port": "strokestyle"
+            }
+        },
+        {
+            "data": "#mycanvas",
+            "tgt": {
+                "process": "dom/GetElement_sidtd",
+                "port": "selector"
+            }
+        }
+    ]
+}

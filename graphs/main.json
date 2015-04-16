@@ -1,0 +1,256 @@
+{
+    "properties": {
+        "name": "main",
+        "environment": {
+            "type": "noflo-browser"
+        }
+    },
+    "inports": {},
+    "outports": {},
+    "groups": [],
+    "processes": {
+        "testA": {
+            "component": "hbm-poc/test-HBM-Comp",
+            "metadata": {
+                "label": "testA",
+                "x": 396,
+                "y": 324,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "testB": {
+            "component": "hbm-poc/test-HBM-Comp",
+            "metadata": {
+                "label": "testB",
+                "x": 540,
+                "y": 216,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "testC": {
+            "component": "hbm-poc/test-HBM-Comp",
+            "metadata": {
+                "label": "testC",
+                "x": 720,
+                "y": 288,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "hbm-poc/HBM-const_46r39": {
+            "component": "hbm-poc/HBM-const",
+            "metadata": {
+                "label": "hbm-poc/HBM-const",
+                "x": 252,
+                "y": 252,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "hbm-poc/HBM-const_6zqns": {
+            "component": "hbm-poc/HBM-const",
+            "metadata": {
+                "label": "hbm-poc/HBM-const",
+                "x": 252,
+                "y": 396,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "hbm-poc/HBM-const_30hto": {
+            "component": "hbm-poc/HBM-const",
+            "metadata": {
+                "label": "hbm-poc/HBM-const",
+                "x": 396,
+                "y": 180,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "t": {
+            "component": "canvas/MakeRange",
+            "metadata": {
+                "label": "t",
+                "x": 720,
+                "y": 144,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "hbm-poc/lineplot_nxqtp": {
+            "component": "hbm-poc/lineplot",
+            "metadata": {
+                "label": "hbm-poc/lineplot",
+                "x": 936,
+                "y": 216,
+                "width": 72,
+                "height": 72
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "testA",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "testC",
+                "port": "dep2"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "testB",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "testC",
+                "port": "dep1"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "hbm-poc/HBM-const_46r39",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "testA",
+                "port": "dep1"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "hbm-poc/HBM-const_6zqns",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "testA",
+                "port": "dep2"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "hbm-poc/HBM-const_30hto",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "testB",
+                "port": "dep1"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "testA",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "testB",
+                "port": "dep2"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "t",
+                "port": "range"
+            },
+            "tgt": {
+                "process": "hbm-poc/lineplot_nxqtp",
+                "port": "x"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "testC",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "hbm-poc/lineplot_nxqtp",
+                "port": "y"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "data": 10,
+            "tgt": {
+                "process": "hbm-poc/HBM-const_6zqns",
+                "port": "value"
+            }
+        },
+        {
+            "data": 5,
+            "tgt": {
+                "process": "hbm-poc/HBM-const_30hto",
+                "port": "value"
+            }
+        },
+        {
+            "data": 0,
+            "tgt": {
+                "process": "t",
+                "port": "from"
+            }
+        },
+        {
+            "data": 200,
+            "tgt": {
+                "process": "t",
+                "port": "to"
+            }
+        },
+        {
+            "data": 10,
+            "tgt": {
+                "process": "t",
+                "port": "count"
+            }
+        },
+        {
+            "data": "100",
+            "tgt": {
+                "process": "testB",
+                "port": "average"
+            }
+        },
+        {
+            "data": "12",
+            "tgt": {
+                "process": "testC",
+                "port": "average"
+            }
+        },
+        {
+            "data": 30,
+            "tgt": {
+                "process": "hbm-poc/HBM-const_46r39",
+                "port": "value"
+            }
+        },
+        {
+            "data": "#mycanvas",
+            "tgt": {
+                "process": "hbm-poc/lineplot_nxqtp",
+                "port": "selector"
+            }
+        }
+    ]
+}
