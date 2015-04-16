@@ -23,8 +23,8 @@
             "component": "hbm-poc/test-HBM-Comp",
             "metadata": {
                 "label": "testB",
-                "x": 540,
-                "y": 216,
+                "x": 576,
+                "y": 396,
                 "width": 72,
                 "height": 72
             }
@@ -64,7 +64,7 @@
             "metadata": {
                 "label": "hbm-poc/HBM-const",
                 "x": 396,
-                "y": 180,
+                "y": 468,
                 "width": 72,
                 "height": 72
             }
