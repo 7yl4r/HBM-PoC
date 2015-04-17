@@ -1,0 +1,364 @@
+{
+    "properties": {
+        "name": "canvas-line-chart",
+        "id": "77f213fb32c9b22527e2",
+        "environment": {
+            "type": "noflo-browser",
+            "content": "<canvas id=\"mycanvas\" width=\"200\" height=\"200\"></canvas>\n"
+        },
+        "icon": ""
+    },
+    "inports": {},
+    "outports": {},
+    "groups": [],
+    "processes": {
+        "canvas/Draw_ps7an": {
+            "component": "canvas/Draw",
+            "metadata": {
+                "label": "canvas/Draw",
+                "x": 612,
+                "y": 252,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "canvas/Fill_cbdq5": {
+            "component": "canvas/Fill",
+            "metadata": {
+                "label": "canvas/Fill",
+                "x": 468,
+                "y": 432,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "canvas/MakeRectangle_1rmr9": {
+            "component": "canvas/MakeRectangle",
+            "metadata": {
+                "label": "canvas/MakeRectangle",
+                "x": 324,
+                "y": 432,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "dom/GetElement_an98u": {
+            "component": "dom/GetElement",
+            "metadata": {
+                "label": "dom/GetElement",
+                "x": 432,
+                "y": 72,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "canvas/MakeRange_lb9hw": {
+            "component": "canvas/MakeRange",
+            "metadata": {
+                "label": "canvas/MakeRange",
+                "x": 0,
+                "y": 288,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "canvas/Stroke_3m3hk": {
+            "component": "canvas/Stroke",
+            "metadata": {
+                "label": "canvas/Stroke",
+                "x": 432,
+                "y": 216,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "strings/ParseJson_1yejs": {
+            "component": "strings/ParseJson",
+            "metadata": {
+                "label": "strings/ParseJson",
+                "x": 0,
+                "y": 180,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "canvas/MakePoint_fkzuq": {
+            "component": "canvas/MakePoint",
+            "metadata": {
+                "label": "canvas/MakePoint",
+                "x": 144,
+                "y": 216,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "canvas/MakeRange_i62n8": {
+            "component": "canvas/MakeRange",
+            "metadata": {
+                "label": "canvas/MakeRange",
+                "x": 0,
+                "y": 432,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "canvas/MakePath_slkr2": {
+            "component": "canvas/MakePath",
+            "metadata": {
+                "label": "canvas/MakePath",
+                "x": 288,
+                "y": 216,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "canvas/MakeGrid_ref0c": {
+            "component": "canvas/MakeGrid",
+            "metadata": {
+                "label": "canvas/MakeGrid",
+                "x": 144,
+                "y": 432,
+                "width": 72,
+                "height": 72
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "dom/GetElement_an98u",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "canvas/Draw_ps7an",
+                "port": "canvas"
+            },
+            "metadata": {
+                "route": 2
+            }
+        },
+        {
+            "src": {
+                "process": "canvas/Fill_cbdq5",
+                "port": "fill"
+            },
+            "tgt": {
+                "process": "canvas/Draw_ps7an",
+                "port": "commands"
+            },
+            "metadata": {
+                "route": 9
+            }
+        },
+        {
+            "src": {
+                "process": "strings/ParseJson_1yejs",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "canvas/MakePoint_fkzuq",
+                "port": "y"
+            }
+        },
+        {
+            "src": {
+                "process": "canvas/MakeRange_lb9hw",
+                "port": "range"
+            },
+            "tgt": {
+                "process": "canvas/MakePoint_fkzuq",
+                "port": "x"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "canvas/MakeRectangle_1rmr9",
+                "port": "rectangle"
+            },
+            "tgt": {
+                "process": "canvas/Fill_cbdq5",
+                "port": "items"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "canvas/MakePath_slkr2",
+                "port": "path"
+            },
+            "tgt": {
+                "process": "canvas/Stroke_3m3hk",
+                "port": "items"
+            }
+        },
+        {
+            "src": {
+                "process": "canvas/Stroke_3m3hk",
+                "port": "stroke"
+            },
+            "tgt": {
+                "process": "canvas/Draw_ps7an",
+                "port": "commands"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "canvas/MakeRange_i62n8",
+                "port": "range"
+            },
+            "tgt": {
+                "process": "canvas/MakeGrid_ref0c",
+                "port": "x"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "canvas/MakeRange_i62n8",
+                "port": "range"
+            },
+            "tgt": {
+                "process": "canvas/MakeGrid_ref0c",
+                "port": "y"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "canvas/MakeGrid_ref0c",
+                "port": "point"
+            },
+            "tgt": {
+                "process": "canvas/MakeRectangle_1rmr9",
+                "port": "point"
+            }
+        },
+        {
+            "src": {
+                "process": "canvas/MakePoint_fkzuq",
+                "port": "point"
+            },
+            "tgt": {
+                "process": "canvas/MakePath_slkr2",
+                "port": "items"
+            }
+        },
+        {
+            "data": "#mycanvas",
+            "tgt": {
+                "process": "dom/GetElement_an98u",
+                "port": "selector"
+            }
+        },
+        {
+            "data": 0,
+            "tgt": {
+                "process": "canvas/MakeRange_lb9hw",
+                "port": "from"
+            }
+        },
+        {
+            "data": 2,
+            "tgt": {
+                "process": "canvas/Stroke_3m3hk",
+                "port": "linewidth"
+            }
+        },
+        {
+            "data": true,
+            "tgt": {
+                "process": "canvas/Draw_ps7an",
+                "port": "drawevery"
+            }
+        },
+        {
+            "data": true,
+            "tgt": {
+                "process": "canvas/Draw_ps7an",
+                "port": "clearevery"
+            }
+        },
+        {
+            "data": 200,
+            "tgt": {
+                "process": "canvas/MakeRange_lb9hw",
+                "port": "to"
+            }
+        },
+        {
+            "data": "[0,10,100,105,106,88,85,10,0]",
+            "tgt": {
+                "process": "strings/ParseJson_1yejs",
+                "port": "in"
+            }
+        },
+        {
+            "data": 10,
+            "tgt": {
+                "process": "canvas/MakeRange_lb9hw",
+                "port": "count"
+            }
+        },
+        {
+            "data": "white",
+            "tgt": {
+                "process": "canvas/Fill_cbdq5",
+                "port": "fillstyle"
+            }
+        },
+        {
+            "data": 1,
+            "tgt": {
+                "process": "canvas/MakeRectangle_1rmr9",
+                "port": "width"
+            }
+        },
+        {
+            "data": 1,
+            "tgt": {
+                "process": "canvas/MakeRectangle_1rmr9",
+                "port": "height"
+            }
+        },
+        {
+            "data": 0,
+            "tgt": {
+                "process": "canvas/MakeRange_i62n8",
+                "port": "from"
+            }
+        },
+        {
+            "data": 200,
+            "tgt": {
+                "process": "canvas/MakeRange_i62n8",
+                "port": "to"
+            }
+        },
+        {
+            "data": 10,
+            "tgt": {
+                "process": "canvas/MakeRange_i62n8",
+                "port": "count"
+            }
+        },
+        {
+            "data": "white",
+            "tgt": {
+                "process": "canvas/Stroke_3m3hk",
+                "port": "strokestyle"
+            }
+        }
+    ]
+}
