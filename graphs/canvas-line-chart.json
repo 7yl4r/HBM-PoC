@@ -9,16 +9,6 @@
         "description": "creates a line plot of given values"
     },
     "inports": {
-        "values": {
-            "process": "strings/ParseJson_1yejs",
-            "port": "in",
-            "metadata": {
-                "x": -144,
-                "y": 108,
-                "width": 72,
-                "height": 72
-            }
-        },
         "len_values": {
             "process": "canvas/MakeRange_lb9hw",
             "port": "count",
@@ -35,6 +25,16 @@
             "metadata": {
                 "x": 252,
                 "y": 36,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "values": {
+            "process": "canvas/MakePoint_fkzuq",
+            "port": "y",
+            "metadata": {
+                "x": 0,
+                "y": 108,
                 "width": 72,
                 "height": 72
             }
@@ -89,16 +89,6 @@
                 "label": "canvas/Stroke",
                 "x": 432,
                 "y": 216,
-                "width": 72,
-                "height": 72
-            }
-        },
-        "strings/ParseJson_1yejs": {
-            "component": "strings/ParseJson",
-            "metadata": {
-                "label": "strings/ParseJson",
-                "x": 0,
-                "y": 144,
                 "width": 72,
                 "height": 72
             }
@@ -166,16 +156,6 @@
             },
             "metadata": {
                 "route": 9
-            }
-        },
-        {
-            "src": {
-                "process": "strings/ParseJson_1yejs",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "canvas/MakePoint_fkzuq",
-                "port": "y"
             }
         },
         {
@@ -320,20 +300,6 @@
             }
         },
         {
-            "data": "[0,10,100,105,106,88,85,10,0]",
-            "tgt": {
-                "process": "strings/ParseJson_1yejs",
-                "port": "in"
-            }
-        },
-        {
-            "data": 10,
-            "tgt": {
-                "process": "canvas/MakeRange_lb9hw",
-                "port": "count"
-            }
-        },
-        {
             "data": "white",
             "tgt": {
                 "process": "canvas/Fill_cbdq5",
@@ -380,13 +346,6 @@
             "tgt": {
                 "process": "canvas/MakeRange_i62n8",
                 "port": "from"
-            }
-        },
-        {
-            "data": "#mycanvas",
-            "tgt": {
-                "process": "dom/GetElement_an98u",
-                "port": "selector"
             }
         }
     ]

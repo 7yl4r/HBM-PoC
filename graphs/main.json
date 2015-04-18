@@ -20,9 +20,30 @@
                 "width": 72,
                 "height": 72
             }
+        },
+        "canvas/MakeRandom_ixg7m": {
+            "component": "canvas/MakeRandom",
+            "metadata": {
+                "label": "canvas/MakeRandom",
+                "x": 252,
+                "y": 288,
+                "width": 72,
+                "height": 72
+            }
         }
     },
     "connections": [
+        {
+            "src": {
+                "process": "canvas/MakeRandom_ixg7m",
+                "port": "numbers"
+            },
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/canvas-line-chart_xdati",
+                "port": "values"
+            },
+            "metadata": {}
+        },
         {
             "data": "#plot-canvas",
             "tgt": {
@@ -31,17 +52,38 @@
             }
         },
         {
-            "data": 3,
+            "data": 200,
+            "tgt": {
+                "process": "canvas/MakeRandom_ixg7m",
+                "port": "max"
+            }
+        },
+        {
+            "data": 100,
+            "tgt": {
+                "process": "canvas/MakeRandom_ixg7m",
+                "port": "count"
+            }
+        },
+        {
+            "data": 100,
             "tgt": {
                 "process": "7yl4r_HBM-PoC/canvas-line-chart_xdati",
                 "port": "len_values"
             }
         },
         {
-            "data": "[20,150,80]",
+            "data": "",
             "tgt": {
                 "process": "7yl4r_HBM-PoC/canvas-line-chart_xdati",
                 "port": "values"
+            }
+        },
+        {
+            "data": 0,
+            "tgt": {
+                "process": "canvas/MakeRandom_ixg7m",
+                "port": "min"
             }
         }
     ]
