@@ -78,16 +78,6 @@
                 "width": 72,
                 "height": 72
             }
-        },
-        "hbm-poc/lineplot_nxqtp": {
-            "component": "hbm-poc/lineplot",
-            "metadata": {
-                "label": "hbm-poc/lineplot",
-                "x": 864,
-                "y": 216,
-                "width": 72,
-                "height": 72
-            }
         }
     },
     "connections": [
@@ -161,32 +151,6 @@
             }
         },
         {
-            "src": {
-                "process": "t",
-                "port": "range"
-            },
-            "tgt": {
-                "process": "hbm-poc/lineplot_nxqtp",
-                "port": "x"
-            },
-            "metadata": {
-                "route": null
-            }
-        },
-        {
-            "src": {
-                "process": "testC",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "hbm-poc/lineplot_nxqtp",
-                "port": "y"
-            },
-            "metadata": {
-                "route": null
-            }
-        },
-        {
             "data": 10,
             "tgt": {
                 "process": "hbm-poc/HBM-const_6zqns",
@@ -240,13 +204,6 @@
             "tgt": {
                 "process": "hbm-poc/HBM-const_46r39",
                 "port": "value"
-            }
-        },
-        {
-            "data": "#mycanvas",
-            "tgt": {
-                "process": "hbm-poc/lineplot_nxqtp",
-                "port": "selector"
             }
         }
     ]
