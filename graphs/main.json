@@ -2,79 +2,21 @@
     "properties": {
         "name": "main",
         "environment": {
-            "type": "noflo-browser"
-        }
+            "type": "noflo-browser",
+            "content": "<canvas id=\"plot-canvas\" width=\"200\" height=\"200\"></canvas>\n"
+        },
+        "icon": ""
     },
     "inports": {},
     "outports": {},
     "groups": [],
     "processes": {
-        "testA": {
-            "component": "hbm-poc/test-HBM-Comp",
+        "7yl4r_HBM-PoC/canvas-line-chart_xdati": {
+            "component": "7yl4r_HBM-PoC/canvas-line-chart",
             "metadata": {
-                "label": "testA",
-                "x": 396,
-                "y": 324,
-                "width": 72,
-                "height": 72
-            }
-        },
-        "testB": {
-            "component": "hbm-poc/test-HBM-Comp",
-            "metadata": {
-                "label": "testB",
-                "x": 576,
-                "y": 396,
-                "width": 72,
-                "height": 72
-            }
-        },
-        "testC": {
-            "component": "hbm-poc/test-HBM-Comp",
-            "metadata": {
-                "label": "testC",
-                "x": 720,
+                "label": "7yl4r_HBM-PoC/canvas-line-chart",
+                "x": 468,
                 "y": 288,
-                "width": 72,
-                "height": 72
-            }
-        },
-        "hbm-poc/HBM-const_46r39": {
-            "component": "hbm-poc/HBM-const",
-            "metadata": {
-                "label": "hbm-poc/HBM-const",
-                "x": 252,
-                "y": 396,
-                "width": 72,
-                "height": 72
-            }
-        },
-        "hbm-poc/HBM-const_6zqns": {
-            "component": "hbm-poc/HBM-const",
-            "metadata": {
-                "label": "hbm-poc/HBM-const",
-                "x": 252,
-                "y": 288,
-                "width": 72,
-                "height": 72
-            }
-        },
-        "hbm-poc/HBM-const_30hto": {
-            "component": "hbm-poc/HBM-const",
-            "metadata": {
-                "label": "hbm-poc/HBM-const",
-                "x": 396,
-                "y": 468,
-                "width": 72,
-                "height": 72
-            }
-        },
-        "t": {
-            "component": "canvas/MakeRange",
-            "metadata": {
-                "label": "t",
-                "x": 720,
-                "y": 144,
                 "width": 72,
                 "height": 72
             }
@@ -82,128 +24,24 @@
     },
     "connections": [
         {
-            "src": {
-                "process": "testA",
-                "port": "out"
-            },
+            "data": "#plot-canvas",
             "tgt": {
-                "process": "testC",
-                "port": "dep2"
-            },
-            "metadata": {
-                "route": 0
+                "process": "7yl4r_HBM-PoC/canvas-line-chart_xdati",
+                "port": "canvas_selector"
             }
         },
         {
-            "src": {
-                "process": "testB",
-                "port": "out"
-            },
+            "data": 3,
             "tgt": {
-                "process": "testC",
-                "port": "dep1"
+                "process": "7yl4r_HBM-PoC/canvas-line-chart_xdati",
+                "port": "len_values"
             }
         },
         {
-            "src": {
-                "process": "hbm-poc/HBM-const_46r39",
-                "port": "out"
-            },
+            "data": "[20,150,80]",
             "tgt": {
-                "process": "testA",
-                "port": "dep1"
-            }
-        },
-        {
-            "src": {
-                "process": "hbm-poc/HBM-const_6zqns",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "testA",
-                "port": "dep2"
-            }
-        },
-        {
-            "src": {
-                "process": "hbm-poc/HBM-const_30hto",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "testB",
-                "port": "dep1"
-            },
-            "metadata": {
-                "route": null
-            }
-        },
-        {
-            "src": {
-                "process": "testA",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "testB",
-                "port": "dep2"
-            },
-            "metadata": {
-                "route": 0
-            }
-        },
-        {
-            "data": 10,
-            "tgt": {
-                "process": "hbm-poc/HBM-const_6zqns",
-                "port": "value"
-            }
-        },
-        {
-            "data": 5,
-            "tgt": {
-                "process": "hbm-poc/HBM-const_30hto",
-                "port": "value"
-            }
-        },
-        {
-            "data": 0,
-            "tgt": {
-                "process": "t",
-                "port": "from"
-            }
-        },
-        {
-            "data": 200,
-            "tgt": {
-                "process": "t",
-                "port": "to"
-            }
-        },
-        {
-            "data": 10,
-            "tgt": {
-                "process": "t",
-                "port": "count"
-            }
-        },
-        {
-            "data": "100",
-            "tgt": {
-                "process": "testB",
-                "port": "average"
-            }
-        },
-        {
-            "data": "12",
-            "tgt": {
-                "process": "testC",
-                "port": "average"
-            }
-        },
-        {
-            "data": 30,
-            "tgt": {
-                "process": "hbm-poc/HBM-const_46r39",
-                "port": "value"
+                "process": "7yl4r_HBM-PoC/canvas-line-chart_xdati",
+                "port": "values"
             }
         }
     ]

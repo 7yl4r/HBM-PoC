@@ -4,7 +4,7 @@ exports.getComponent = ->
   c = new noflo.Component
   
   value = 1
-  @len = 1000
+  @len = 100
   @values = (value for [1..@len])
   
   c.outPorts.add 'out'
@@ -17,4 +17,4 @@ exports.getComponent = ->
     @values = (payload for [1..@len])
     # Do something with the packet, then
     c.outPorts.out.send @values
-  c
+  return c
