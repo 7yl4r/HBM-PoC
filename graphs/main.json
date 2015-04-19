@@ -25,8 +25,18 @@
             "component": "canvas/MakeRandom",
             "metadata": {
                 "label": "canvas/MakeRandom",
-                "x": 252,
+                "x": 180,
                 "y": 288,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "7yl4r_HBM-PoC/LOG_kxr6h": {
+            "component": "7yl4r_HBM-PoC/LOG",
+            "metadata": {
+                "label": "7yl4r_HBM-PoC/LOG",
+                "x": 360,
+                "y": 180,
                 "width": 72,
                 "height": 72
             }
@@ -45,24 +55,23 @@
             "metadata": {}
         },
         {
+            "src": {
+                "process": "canvas/MakeRandom_ixg7m",
+                "port": "numbers"
+            },
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/LOG_kxr6h",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
             "data": "#plot-canvas",
             "tgt": {
                 "process": "7yl4r_HBM-PoC/canvas-line-chart_xdati",
                 "port": "canvas_selector"
-            }
-        },
-        {
-            "data": 200,
-            "tgt": {
-                "process": "canvas/MakeRandom_ixg7m",
-                "port": "max"
-            }
-        },
-        {
-            "data": 100,
-            "tgt": {
-                "process": "canvas/MakeRandom_ixg7m",
-                "port": "count"
             }
         },
         {
@@ -80,7 +89,21 @@
             }
         },
         {
-            "data": 0,
+            "data": "200",
+            "tgt": {
+                "process": "canvas/MakeRandom_ixg7m",
+                "port": "count"
+            }
+        },
+        {
+            "data": "10",
+            "tgt": {
+                "process": "canvas/MakeRandom_ixg7m",
+                "port": "max"
+            }
+        },
+        {
+            "data": "5",
             "tgt": {
                 "process": "canvas/MakeRandom_ixg7m",
                 "port": "min"
