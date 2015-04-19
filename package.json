@@ -14,7 +14,7 @@
     "url": "https://github.com/7yl4r/HBM-PoC.git"
   },
   "devDependencies": {
-    "grunt-coffeelint": "~1.9.3",
+    "grunt-coffeelint": "~1.9.3"
   },
   "dependencies": {
     "noflo": "~0.5.12",
