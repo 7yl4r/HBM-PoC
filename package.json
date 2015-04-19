@@ -1,0 +1,30 @@
+{
+  "name": "HBM-PoC",
+  "version": "0.0.1",
+  "description": "Human Behavior Modeling in NoFlo.",
+  "bugs": {
+    "url": "https://github.com/7yl4r/HBM-PoC/issues",
+    "email": "murray.tylar@gmail.com"
+  },
+  "contributors": [
+    "https://github.com/7yl4r/HBM-PoC/graphs/contributors"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/7yl4r/HBM-PoC.git"
+  },
+  "devDependencies": {
+    "grunt-coffeelint": "~1.9.3",
+  },
+  "dependencies": {
+    "noflo": "~0.5.12",
+    "noflo-core": "~0.1.8",
+    "noflo-test": "~0.0.7"
+  },
+  "scripts": {
+    "pretest": "./node_modules/.bin/coffeelint -r components",
+    "test": "./node_modules/.bin/noflo-test --spec test/*.coffee"
+  }
+}
+
+
