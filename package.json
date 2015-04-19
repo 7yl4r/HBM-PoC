@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "noflo": "~0.5.12",
-    "noflo-core": "~0.1.8",
+    "noflo-core": "~0.1.11",
     "noflo-test": "~0.0.7"
   },
   "scripts": {
