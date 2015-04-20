@@ -15,11 +15,11 @@
   },
   "devDependencies": {
     "coffeelint": "~1.9.3",
-    "noflo-test": "git://github.com/noflo/noflo-test"
+    "noflo-test": "git://github.com/noflo/noflo-test.git"
   },
   "dependencies": {
     "noflo": "git://github.com/noflo/noflo",
-    "noflo-core": "git://github.com/noflo/noflo-core"
+    "noflo-core": "git://github.com/noflo/noflo-core.git"
   },
   "scripts": {
     "pretest": "./node_modules/.bin/coffeelint -r components",
