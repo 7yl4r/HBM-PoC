@@ -6,9 +6,6 @@ exports.getComponent = ->
   @len = 100
   @values = (1 for [1..@len])
   
-  c.outPorts.add 'out'
-  c.outPorts.out.send @values
-  
   c.inPorts.add 'valu',
     datatype: "number",
   ,(event, payload) =>
@@ -16,4 +13,7 @@ exports.getComponent = ->
     @values = (payload for [1..@len])
     # Do something with the packet, then
     c.outPorts.out.send @values
+  
+  c.outPorts.add 'out'
+    
   return c
