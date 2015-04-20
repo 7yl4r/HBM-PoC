@@ -7,7 +7,7 @@ test = require 'noflo-test'
 `
 
 test.component('HBM-const').
-  discuss('When receiving a val').
+  describe('When receiving a val').
     send.data('valu', 5).
     it('should recieve array of that val').
       receive.data('out', (5 for [1..100])).
