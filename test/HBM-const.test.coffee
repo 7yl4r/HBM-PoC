@@ -1,9 +1,9 @@
 test = require 'noflo-test'
 
 `
-process.on('uncaughtException', function(err) {
-  console.log('Caught exception: ' + err.stack);
-});
+//process.on('uncaughtException', function(err) {
+//  console.log('Caught exception: ' + err.stack);
+//});
 `
 
 test.component('HBM-const').
