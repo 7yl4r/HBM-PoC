@@ -1,14 +1,20 @@
-test = require 'noflo-test'
+chai = require 'chai'
+noflo = require 'noflo'
+Tester = require 'noflo-tester'
 
-`
-//process.on('uncaughtException', function(err) {
-//  console.log('Caught exception: ' + err.stack);
-//});
-`
+c = require('../components/HBM-const.coffee').getComponent
 
-test.component('HBM-const').
-  describe('When receiving a val').
+describe 'When receiving a val', ->
+    t = new Tester c
+    
+    before (done) ->
+        t.start ->
+            done()
+    
     send.data('valu', 5).
-    it('should recieve array of that val').
-      receive.data('out', (5 for [1..100])).
-export module
+    it 'should recieve array of that val', (done) ->
+        t.receive 'out', (data)->
+            chai.expect(data).to.equal (5 for [1..100])
+            done()
+            
+        t.send 'valu', 5
