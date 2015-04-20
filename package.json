@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "coffeelint": "~1.9.3",
-    "noflo-test": "git://github.com/noflo/noflo-tester"
+    "noflo-tester": "~0.0.2"
   },
   "dependencies": {
     "noflo": "~0.5.12",
