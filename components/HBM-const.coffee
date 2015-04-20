@@ -3,14 +3,13 @@ noflo = require 'noflo'
 exports.getComponent = ->
   c = new noflo.Component
   
-  value = 1
   @len = 100
-  @values = (value for [1..@len])
+  @values = (1 for [1..@len])
   
   c.outPorts.add 'out'
   c.outPorts.out.send @values
   
-  c.inPorts.add 'value',
+  c.inPorts.add 'valu',
     datatype: "number",
   ,(event, payload) =>
     return unless event is 'data'
