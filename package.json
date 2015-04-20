@@ -14,12 +14,12 @@
     "url": "https://github.com/7yl4r/HBM-PoC.git"
   },
   "devDependencies": {
-    "coffeelint": "~1.9.3"
+    "coffeelint": "~1.9.3",
+    "noflo-test": "git://github.com/noflo/noflo-test"
   },
   "dependencies": {
     "noflo": "~0.5.12",
     "noflo-core": "~0.1.11",
-    "noflo-test": "~0.0.7"
   },
   "scripts": {
     "pretest": "./node_modules/.bin/coffeelint -r components",
