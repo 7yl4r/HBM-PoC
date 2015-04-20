@@ -18,8 +18,8 @@
     "noflo-test": "git://github.com/noflo/noflo-test"
   },
   "dependencies": {
-    "noflo": "~0.5.12",
-    "noflo-core": "~0.1.11"
+    "noflo": "git://github.com/noflo/noflo",
+    "noflo-core": "git://github.com/noflo/noflo-core"
   },
   "scripts": {
     "pretest": "./node_modules/.bin/coffeelint -r components",
