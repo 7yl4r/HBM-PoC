@@ -15,7 +15,8 @@
   },
   "devDependencies": {
     "coffeelint": "~1.9.3",
-    "noflo-tester": "~0.0.2"
+    "noflo-tester": "~0.0.2",
+    "cofee-script": "~1.9.2"
   },
   "dependencies": {
     "noflo": "~0.5.12",
@@ -23,7 +24,7 @@
   },
   "scripts": {
     "pretest": "./node_modules/.bin/coffeelint -r components",
-    "test": "./node_modules/.bin/noflo-test --spec test/*.coffee"
+    "test": "./node_modules/.bin/coffee --spec test/*.coffee"
   }
 }
 
