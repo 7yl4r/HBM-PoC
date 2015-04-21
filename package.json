@@ -16,7 +16,7 @@
   "devDependencies": {
     "coffeelint": "~1.9.3",
     "noflo-tester": "~0.0.2",
-    "cofee-script": "~1.9.2"
+    "coffee-script": "~1.9.2"
   },
   "dependencies": {
     "noflo": "~0.5.12",
