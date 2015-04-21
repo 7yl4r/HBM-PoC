@@ -17,7 +17,8 @@
     "coffeelint": "~1.9.3",
     "noflo-tester": "~0.0.2",
     "coffee-script": "~1.9.2",
-    "chai": "^1.10.0"
+    "chai": "^1.10.0",
+    "mocha": "^2.0.1"
   },
   "dependencies": {
     "noflo": "~0.5.12",
@@ -25,7 +26,7 @@
   },
   "scripts": {
     "pretest": "./node_modules/.bin/coffeelint -r components",
-    "test": "./node_modules/.bin/coffee test/*.test.coffee"
+    "test": "./node_modules/.bin/mocha --compilers coffee:coffee-script/register test/*.test.coffee"
   }
 }
 
