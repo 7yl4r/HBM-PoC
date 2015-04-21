@@ -11,7 +11,6 @@ describe 'When receiving a val', ->
         t.start ->
             done()
     
-    send.data('valu', 5).
     it 'should recieve array of that val', (done) ->
         t.receive 'out', (data)->
             chai.expect(data).to.equal (5 for [1..100])
