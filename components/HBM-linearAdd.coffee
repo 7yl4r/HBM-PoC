@@ -5,6 +5,8 @@ class MyComponent extends noflo.Component
   # icon
 
   constructor:  ->
+    @c1 = 1
+    @c2 = 1
     @inPorts = new noflo.InPorts
       in_1:
         datatype: 'array'
@@ -12,6 +14,12 @@ class MyComponent extends noflo.Component
       in_2:
         datatype: 'array'
         required: true
+      c_1:
+        datatype: 'number'
+        required: false
+      c_2:
+        datatype: 'number'
+        required: false
 
     @outPorts = new noflo.OutPorts
       out:
@@ -20,15 +28,19 @@ class MyComponent extends noflo.Component
     @inPorts.in_1.on 'data', (data) =>
       @in_1 = data
       @compute()
-
     @inPorts.in_2.on 'data', (data) =>
       @in_2 = data
       @compute()
-
+    @inPorts.c_1.on 'data', (data) =>
+      @c_1 = data
+      @compute()
+    @inPorts.c_2.on 'data', (data) =>
+      @c_2 = data
+      @compute()
 
   # function to get value @ t from dependency time-series objects
-  step: (t, dep1, dep2)->
-    return dep1[t] + dep2[t]
+  step: (t, c1, dep1, c2, dep2)->
+    return c1*dep1[t] + c2*dep2[t]
     # TODO: handle out-of-bounds t by wrapping array calls
     #   in a function?
 
@@ -41,7 +53,7 @@ class MyComponent extends noflo.Component
     else
       values = (0 for [1..@in_1.length])
       for t of @in_1
-        values[t] = @step(t, @in_1, @in_2)
+        values[t] = @step(t, @c_1, @in_1, @c_2, @in_2)
 
       @outPorts.out.send(@values)
 
