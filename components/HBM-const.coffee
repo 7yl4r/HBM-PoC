@@ -1,19 +1,36 @@
 noflo = require 'noflo'
 
-exports.getComponent = ->
-  c = new noflo.Component
-  
-  @len = 100
-  @values = (1 for [1..@len])
-  
-  c.inPorts.add 'valu',
-    datatype: "number",
-  ,(event, payload) =>
-    return unless event is 'data'
-    @values = (payload for [1..@len])
-    # Do something with the packet, then
-    c.outPorts.out.send @values
-  
-  c.outPorts.add 'out'
-    
-  return c
+class HBMConst extends noflo.Component
+  description: "Creates array of given length with given value"
+  # icon
+
+  constructor:  ->
+    @inPorts = new noflo.InPorts
+      value:
+        datatype: 'number'
+        required: true
+      length:
+        datatype: 'number'
+        required: true
+
+    @outPorts = new noflo.OutPorts
+      numbers:
+        datatype: 'array'
+
+    @inPorts.value.on 'data', (data) =>
+      @value = data
+      @compute()
+
+    @inPorts.length.on 'data', (data) =>
+      @len = data
+      @compute()
+
+  compute: ->
+    return unless @outPorts.numbers.isAttached()
+    return unless @len? and @value? > 0
+
+    @outPorts.numbers.send(@value for [1..@len])
+
+    @outPorts.numbers.disconnect()
+
+exports.getComponent = -> new HBMConst
