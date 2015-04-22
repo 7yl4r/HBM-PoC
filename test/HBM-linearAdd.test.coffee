@@ -16,8 +16,28 @@ describe 'HBM linear add', ->
         IN2 = [1,2,3,4,5,6,7,8,9]
         t.receive 'out', (data) ->
             for t of data
-                chai.expect(data[t]).to.equal(IN1[t] + IN2[t])   # aka equal(10) in this case...
+                chai.expect(data[t]).to.equal(10)   # aka equal(10) in this case...
             done()
 
         t.send 'in_1', IN1
         t.send 'in_2', IN2
+
+    it 'should add two arrays with linear scalars', (done) ->
+        IN_ONE = [1, 10, 100]
+        IN_TWO = [1,  1,   1]
+        C1 = 1
+        C2 = 2
+        expectation = [3, 12, 102]
+
+        # reset in_2 to prevent send in_1 from causing computation
+        t.send 'in_2', undefined
+
+        t.receive 'out', (data) ->
+            for t of data
+                chai.expect(data[t]).to.equal(expectation[t])   # aka equal(10) in this case...
+            done()
+
+        t.send 'c_1', C1
+        t.send 'c_2', C2
+        t.send 'in_1', IN_ONE
+        t.send 'in_2', IN_TWO
