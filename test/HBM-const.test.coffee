@@ -2,7 +2,7 @@ chai = require 'chai'
 noflo = require 'noflo'
 Tester = require 'noflo-tester'
 
-c = require('../components/HBM-const.coffee').getComponent
+c = require('../components/HBM-const.coffee').getComponent()
 
 describe 'When receiving a val', ->
     t = new Tester c
