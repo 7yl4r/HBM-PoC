@@ -7,6 +7,15 @@ class MyComponent extends noflo.Component
   constructor:  ->
     @c1 = 1
     @c2 = 1
+
+    # TODO: try to use this syntax:
+#      c.inPorts.add 'max',
+#          datatype: "number"
+#          description: "absolute maximum value"
+#      , (event, payload) =>
+#          if event is 'data'
+#              @max = payload
+
     @inPorts = new noflo.InPorts
       in_1:
         datatype: 'array'
