@@ -5,8 +5,8 @@ class MyComponent extends noflo.Component
   # icon
 
   constructor:  ->
-    @c1 = 1
-    @c2 = 1
+    @c_1 = 1
+    @c_2 = 1
 
     # TODO: try to use this syntax:
 #      c.inPorts.add 'max',
@@ -49,6 +49,7 @@ class MyComponent extends noflo.Component
 
   # function to get value @ t from dependency time-series objects
   step: (t, c1, dep1, c2, dep2)->
+    #console.log('step(', t, c1, dep1[t], c2, dep2[t], ')')
     return c1*dep1[t] + c2*dep2[t]
     # TODO: handle out-of-bounds t by wrapping array calls
     #   in a function?
@@ -68,7 +69,7 @@ class MyComponent extends noflo.Component
       for t of @in_1
         values[t] = @step(t, @c_1, @in_1, @c_2, @in_2)
 
-      console.log('data:', values)
+#      console.log('data:', values)
       @outPorts.out.send(values)
 
       @outPorts.out.disconnect()
