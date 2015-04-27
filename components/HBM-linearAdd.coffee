@@ -79,6 +79,7 @@ class MyComponent extends noflo.Component
       @outPorts.out.disconnect()
   
     else
-      console.error('cannot compute, in_1 and in_2 not specified? in1:', @in_1, 'in2:', @in_2)
+      console.error('cannot compute, in_1 and in_2 not specified?' +
+                    'in1:', @in_1, 'in2:', @in_2)
 
 exports.getComponent = -> new MyComponent
