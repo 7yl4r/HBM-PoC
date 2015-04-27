@@ -55,14 +55,17 @@ class MyComponent extends noflo.Component
 
   compute: ->
     return unless @outPorts.out.isAttached()
-    return unless @in_1? and @in_2?
-
-    if @in_1.length != @in_2.length
+    
+    if not ( @in_1? and @in_2? )
+      throw Error('cannot compute; inflows not defined.')
+      
+    else if @in_1.length != @in_2.length
       throw Error('input arrays must be same length, ' +
           @in_1.length +
           '!=' +
           @in_2.length
       )
+      
     else
       values = (0 for [1..@in_1.length])
       for t of @in_1
