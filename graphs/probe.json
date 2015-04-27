@@ -1,0 +1,100 @@
+{
+    "properties": {
+        "name": "probe",
+        "environment": {
+            "type": "noflo-browser"
+        }
+    },
+    "inports": {
+        "len_values": {
+            "process": "7yl4r_HBM-PoC/canvas-line-chart_oroc7",
+            "port": "len_values",
+            "metadata": {
+                "x": 324,
+                "y": -36,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "canvas_selector": {
+            "process": "7yl4r_HBM-PoC/canvas-line-chart_oroc7",
+            "port": "canvas_selector",
+            "metadata": {
+                "x": 324,
+                "y": 72,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "in": {
+            "process": "core/Repeat_jc5u",
+            "port": "in",
+            "metadata": {
+                "x": 324,
+                "y": 180,
+                "width": 72,
+                "height": 72
+            }
+        }
+    },
+    "outports": {},
+    "groups": [],
+    "processes": {
+        "7yl4r_HBM-PoC/canvas-line-chart_oroc7": {
+            "component": "7yl4r_HBM-PoC/canvas-line-chart",
+            "metadata": {
+                "label": "7yl4r_HBM-PoC/canvas-line-chart",
+                "x": 792,
+                "y": 144,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "7yl4r_HBM-PoC/LOG_377mj": {
+            "component": "7yl4r_HBM-PoC/LOG",
+            "metadata": {
+                "label": "7yl4r_HBM-PoC/LOG",
+                "x": 792,
+                "y": 288,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Repeat_jc5u": {
+            "component": "core/Repeat",
+            "metadata": {
+                "label": "core/Repeat",
+                "x": 540,
+                "y": 216,
+                "width": 72,
+                "height": 72
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "core/Repeat_jc5u",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/canvas-line-chart_oroc7",
+                "port": "values"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Repeat_jc5u",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/LOG_377mj",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 0
+            }
+        }
+    ]
+}

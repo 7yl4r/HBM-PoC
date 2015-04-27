@@ -81,22 +81,12 @@
                 "height": 72
             }
         },
-        "7yl4r_HBM-PoC/LOG_4s5l5": {
-            "component": "7yl4r_HBM-PoC/LOG",
+        "7yl4r_HBM-PoC/probe_t9c80": {
+            "component": "7yl4r_HBM-PoC/probe",
             "metadata": {
-                "label": "7yl4r_HBM-PoC/LOG",
-                "x": 540,
-                "y": 0,
-                "width": 72,
-                "height": 72
-            }
-        },
-        "7yl4r_HBM-PoC/canvas-line-chart_c8ypf": {
-            "component": "7yl4r_HBM-PoC/canvas-line-chart",
-            "metadata": {
-                "label": "7yl4r_HBM-PoC/canvas-line-chart",
+                "label": "7yl4r_HBM-PoC/probe",
                 "x": 756,
-                "y": 288,
+                "y": 108,
                 "width": 72,
                 "height": 72
             }
@@ -192,36 +182,23 @@
                 "port": "out"
             },
             "tgt": {
-                "process": "7yl4r_HBM-PoC/canvas-line-chart_c8ypf",
+                "process": "7yl4r_HBM-PoC/probe_t9c80",
                 "port": "len_values"
             },
-            "metadata": {}
+            "metadata": {
+                "route": 0
+            }
         },
         {
             "src": {
-                "process": "7yl4r_HBM-PoC/HBM-const_3cloh",
-                "port": "numbers"
+                "process": "7yl4r_HBM-PoC/HBM-linearAdd_dn5sj",
+                "port": "out"
             },
             "tgt": {
-                "process": "7yl4r_HBM-PoC/LOG_4s5l5",
+                "process": "7yl4r_HBM-PoC/probe_t9c80",
                 "port": "in"
             },
-            "metadata": {
-                "route": null
-            }
-        },
-        {
-            "src": {
-                "process": "7yl4r_HBM-PoC/HBM-const_3cloh",
-                "port": "numbers"
-            },
-            "tgt": {
-                "process": "7yl4r_HBM-PoC/canvas-line-chart_c8ypf",
-                "port": "values"
-            },
-            "metadata": {
-                "route": null
-            }
+            "metadata": {}
         },
         {
             "data": "150",
@@ -254,7 +231,7 @@
         {
             "data": "#plot-canvas",
             "tgt": {
-                "process": "7yl4r_HBM-PoC/canvas-line-chart_c8ypf",
+                "process": "7yl4r_HBM-PoC/probe_t9c80",
                 "port": "canvas_selector"
             }
         }
