@@ -75,8 +75,8 @@
             "component": "7yl4r_HBM-PoC/HBM-linearAdd",
             "metadata": {
                 "label": "7yl4r_HBM-PoC/HBM-linearAdd",
-                "x": 432,
-                "y": 108,
+                "x": 576,
+                "y": 144,
                 "width": 72,
                 "height": 72
             }
@@ -85,8 +85,8 @@
             "component": "7yl4r_HBM-PoC/LOG",
             "metadata": {
                 "label": "7yl4r_HBM-PoC/LOG",
-                "x": 648,
-                "y": 72,
+                "x": 540,
+                "y": 0,
                 "width": 72,
                 "height": 72
             }
@@ -188,30 +188,6 @@
         },
         {
             "src": {
-                "process": "7yl4r_HBM-PoC/HBM-linearAdd_dn5sj",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "7yl4r_HBM-PoC/LOG_4s5l5",
-                "port": "in"
-            },
-            "metadata": {
-                "route": 0
-            }
-        },
-        {
-            "src": {
-                "process": "7yl4r_HBM-PoC/HBM-linearAdd_dn5sj",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "7yl4r_HBM-PoC/canvas-line-chart_c8ypf",
-                "port": "values"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
                 "process": "N_TIME_STEPS",
                 "port": "out"
             },
@@ -220,6 +196,32 @@
                 "port": "len_values"
             },
             "metadata": {}
+        },
+        {
+            "src": {
+                "process": "7yl4r_HBM-PoC/HBM-const_3cloh",
+                "port": "numbers"
+            },
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/LOG_4s5l5",
+                "port": "in"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "7yl4r_HBM-PoC/HBM-const_3cloh",
+                "port": "numbers"
+            },
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/canvas-line-chart_c8ypf",
+                "port": "values"
+            },
+            "metadata": {
+                "route": null
+            }
         },
         {
             "data": "150",
