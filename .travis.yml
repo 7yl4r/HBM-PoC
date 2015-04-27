@@ -2,3 +2,7 @@ language: node_js
 node_js:
   - 0.10
 script: npm test
+notifications:
+  email:
+    on_success: change # default: change
+    on_failure: change # default: always
