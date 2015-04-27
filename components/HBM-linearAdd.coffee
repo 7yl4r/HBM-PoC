@@ -73,7 +73,7 @@ class MyComponent extends noflo.Component
       for t of @in_1
         values[t] = @step(t, @c_1, @in_1, @c_2, @in_2)
 
-      @outPorts.out.send(@values)
+      @outPorts.out.send(values)
 
       @outPorts.out.disconnect()
 
