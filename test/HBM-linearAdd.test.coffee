@@ -4,7 +4,20 @@ Tester = require 'noflo-tester'
 
 c = require('../components/HBM-linearAdd.coffee').getComponent()
 
-describe 'HBM linear add', ->
+describe 'HBM linear add internals', ->
+
+    it 'should compute one step correctly', (done)->
+        c1 = 1
+        c2 = 1
+        dep1 = [1, 1, 1]
+        dep2 = [1, 1, 1]
+        t = 1
+        expected = c1*dep1[t] + c2*dep2[t]
+        actual   = c.step(t, c1, dep1, c2, dep2)
+        chai.expect(actual).to.equal(expected)
+        done()
+
+describe 'HBM linear add component', ->
     t = new Tester c
 
     before (done) ->
