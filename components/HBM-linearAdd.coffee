@@ -62,13 +62,13 @@ class MyComponent extends noflo.Component
     if not @in_2? and @in_1
       @in_2 = (0 for [1..@in_1.length])
       console.warn('using 0s for in_2.')
-    else if @in_1.length != @in_2.length
+      
+    if @in_1.length != @in_2.length
       throw Error('input arrays must be same length, ' +
           @in_1.length +
           '!=' +
           @in_2.length
       )
-      
     else if @in_1? and @in_2?
       values = (0 for [1..@in_1.length])
       for t of @in_1
