@@ -101,12 +101,12 @@
                 "height": 72
             }
         },
-        "7yl4r_HBM-PoC/canvas-line-chart_2ee7j": {
+        "7yl4r_HBM-PoC/canvas-line-chart_c8ypf": {
             "component": "7yl4r_HBM-PoC/canvas-line-chart",
             "metadata": {
                 "label": "7yl4r_HBM-PoC/canvas-line-chart",
                 "x": 756,
-                "y": 216,
+                "y": 288,
                 "width": 72,
                 "height": 72
             }
@@ -224,27 +224,25 @@
         },
         {
             "src": {
-                "process": "N_TIME_STEPS",
+                "process": "7yl4r_HBM-PoC/HBM-linearAdd_dn5sj",
                 "port": "out"
             },
             "tgt": {
-                "process": "7yl4r_HBM-PoC/canvas-line-chart_2ee7j",
-                "port": "len_values"
+                "process": "7yl4r_HBM-PoC/canvas-line-chart_c8ypf",
+                "port": "values"
             },
             "metadata": {}
         },
         {
             "src": {
-                "process": "7yl4r_HBM-PoC/HBM-linearAdd_dn5sj",
+                "process": "N_TIME_STEPS",
                 "port": "out"
             },
             "tgt": {
-                "process": "7yl4r_HBM-PoC/canvas-line-chart_2ee7j",
-                "port": "in"
+                "process": "7yl4r_HBM-PoC/canvas-line-chart_c8ypf",
+                "port": "len_values"
             },
-            "metadata": {
-                "route": 0
-            }
+            "metadata": {}
         },
         {
             "data": "150",
@@ -277,7 +275,7 @@
         {
             "data": "#plot-canvas",
             "tgt": {
-                "process": "7yl4r_HBM-PoC/canvas-line-chart_2ee7j",
+                "process": "7yl4r_HBM-PoC/canvas-line-chart_c8ypf",
                 "port": "canvas_selector"
             }
         }
