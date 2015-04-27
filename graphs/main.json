@@ -3,7 +3,7 @@
         "name": "main",
         "environment": {
             "type": "noflo-browser",
-            "content": "<canvas id=\"plot-canvas\" width=\"200\" height=\"200\"></canvas>\n"
+            "content": "Selected output: <bold>randomExample</bold>\n<canvas id=\"plot-canvas\" width=\"200\" height=\"200\"></canvas>\nmin=0, max=200"
         },
         "icon": ""
     },
@@ -11,22 +11,52 @@
     "outports": {},
     "groups": [],
     "processes": {
-        "7yl4r_HBM-PoC/canvas-line-chart_xdati": {
+        "probe": {
             "component": "7yl4r_HBM-PoC/canvas-line-chart",
             "metadata": {
-                "label": "7yl4r_HBM-PoC/canvas-line-chart",
+                "label": "probe",
                 "x": 468,
                 "y": 288,
                 "width": 72,
                 "height": 72
             }
         },
-        "canvas/MakeRandom_ixg7m": {
+        "randomExample": {
             "component": "canvas/MakeRandom",
             "metadata": {
-                "label": "canvas/MakeRandom",
+                "label": "randomExample",
                 "x": 180,
                 "y": 288,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "strings/ParseJson_m77ta": {
+            "component": "strings/ParseJson",
+            "metadata": {
+                "label": "strings/ParseJson",
+                "x": 36,
+                "y": 252,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "strings/ParseJson_np62o": {
+            "component": "strings/ParseJson",
+            "metadata": {
+                "label": "strings/ParseJson",
+                "x": 36,
+                "y": 360,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "strings/ParseJson_7mmrj": {
+            "component": "strings/ParseJson",
+            "metadata": {
+                "label": "strings/ParseJson",
+                "x": 36,
+                "y": 144,
                 "width": 72,
                 "height": 72
             }
@@ -35,8 +65,8 @@
             "component": "7yl4r_HBM-PoC/LOG",
             "metadata": {
                 "label": "7yl4r_HBM-PoC/LOG",
-                "x": 360,
-                "y": 180,
+                "x": 324,
+                "y": 396,
                 "width": 72,
                 "height": 72
             }
@@ -45,18 +75,64 @@
     "connections": [
         {
             "src": {
-                "process": "canvas/MakeRandom_ixg7m",
+                "process": "randomExample",
                 "port": "numbers"
             },
             "tgt": {
-                "process": "7yl4r_HBM-PoC/canvas-line-chart_xdati",
+                "process": "probe",
                 "port": "values"
             },
             "metadata": {}
         },
         {
             "src": {
-                "process": "canvas/MakeRandom_ixg7m",
+                "process": "strings/ParseJson_m77ta",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "randomExample",
+                "port": "min"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "strings/ParseJson_np62o",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "randomExample",
+                "port": "max"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "strings/ParseJson_7mmrj",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "probe",
+                "port": "len_values"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "strings/ParseJson_7mmrj",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "randomExample",
+                "port": "count"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "randomExample",
                 "port": "numbers"
             },
             "tgt": {
@@ -70,43 +146,36 @@
         {
             "data": "#plot-canvas",
             "tgt": {
-                "process": "7yl4r_HBM-PoC/canvas-line-chart_xdati",
+                "process": "probe",
                 "port": "canvas_selector"
-            }
-        },
-        {
-            "data": 100,
-            "tgt": {
-                "process": "7yl4r_HBM-PoC/canvas-line-chart_xdati",
-                "port": "len_values"
             }
         },
         {
             "data": "",
             "tgt": {
-                "process": "7yl4r_HBM-PoC/canvas-line-chart_xdati",
+                "process": "probe",
                 "port": "values"
             }
         },
         {
-            "data": "200",
+            "data": "150",
             "tgt": {
-                "process": "canvas/MakeRandom_ixg7m",
-                "port": "count"
+                "process": "strings/ParseJson_np62o",
+                "port": "in"
             }
         },
         {
-            "data": "10",
+            "data": "50",
             "tgt": {
-                "process": "canvas/MakeRandom_ixg7m",
-                "port": "max"
+                "process": "strings/ParseJson_m77ta",
+                "port": "in"
             }
         },
         {
-            "data": "5",
+            "data": "100",
             "tgt": {
-                "process": "canvas/MakeRandom_ixg7m",
-                "port": "min"
+                "process": "strings/ParseJson_7mmrj",
+                "port": "in"
             }
         }
     ]
