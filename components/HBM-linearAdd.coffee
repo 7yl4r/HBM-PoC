@@ -56,11 +56,12 @@ class MyComponent extends noflo.Component
   compute: ->
     return unless @outPorts.out.isAttached()
     
-    if not @in_1?
-      throw Error('cannot compute; in_1 undefined.')
-    if not @in_2?
-      throw Error('cannot compute; in_2 undefined.')
-      
+    if not @in_1? and @in_2
+      @in_1 = [0 for 1..@in_2.length]
+      console.warn('using 0s for in_1.')
+    if not @in_2? and @in_1
+      @in_2 = [0 for 1..@in_1.length]
+      console.warn('using 0s for in_2.')
     else if @in_1.length != @in_2.length
       throw Error('input arrays must be same length, ' +
           @in_1.length +
@@ -68,7 +69,7 @@ class MyComponent extends noflo.Component
           @in_2.length
       )
       
-    else
+    else if @in_1? and @in_2?
       values = (0 for [1..@in_1.length])
       for t of @in_1
         values[t] = @step(t, @c_1, @in_1, @c_2, @in_2)
@@ -76,5 +77,8 @@ class MyComponent extends noflo.Component
       @outPorts.out.send(values)
 
       @outPorts.out.disconnect()
+  
+    else
+      console.error('cannot compute, in_1 and in_2 not specified? in1:', @in_1, 'in2:', @in_2)
 
 exports.getComponent = -> new MyComponent
