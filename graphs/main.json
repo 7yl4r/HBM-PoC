@@ -11,16 +11,6 @@
     "outports": {},
     "groups": [],
     "processes": {
-        "probe": {
-            "component": "7yl4r_HBM-PoC/canvas-line-chart",
-            "metadata": {
-                "label": "probe",
-                "x": 468,
-                "y": 288,
-                "width": 72,
-                "height": 72
-            }
-        },
         "randomExample": {
             "component": "canvas/MakeRandom",
             "metadata": {
@@ -51,11 +41,11 @@
                 "height": 72
             }
         },
-        "strings/ParseJson_7mmrj": {
+        "N_TIME_STEPS": {
             "component": "strings/ParseJson",
             "metadata": {
-                "label": "strings/ParseJson",
-                "x": 36,
+                "label": "N_TIME_STEPS",
+                "x": 72,
                 "y": 144,
                 "width": 72,
                 "height": 72
@@ -70,20 +60,59 @@
                 "width": 72,
                 "height": 72
             }
+        },
+        "7yl4r_HBM-PoC/HBM-const_3cloh": {
+            "component": "7yl4r_HBM-PoC/HBM-const",
+            "metadata": {
+                "label": "7yl4r_HBM-PoC/HBM-const",
+                "x": 252,
+                "y": 72,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "strings/ParseJson_htmcc": {
+            "component": "strings/ParseJson",
+            "metadata": {
+                "label": "strings/ParseJson",
+                "x": 108,
+                "y": 0,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "7yl4r_HBM-PoC/HBM-linearAdd_dn5sj": {
+            "component": "7yl4r_HBM-PoC/HBM-linearAdd",
+            "metadata": {
+                "label": "7yl4r_HBM-PoC/HBM-linearAdd",
+                "x": 432,
+                "y": 108,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "7yl4r_HBM-PoC/LOG_4s5l5": {
+            "component": "7yl4r_HBM-PoC/LOG",
+            "metadata": {
+                "label": "7yl4r_HBM-PoC/LOG",
+                "x": 648,
+                "y": 72,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "7yl4r_HBM-PoC/canvas-line-chart_2ee7j": {
+            "component": "7yl4r_HBM-PoC/canvas-line-chart",
+            "metadata": {
+                "label": "7yl4r_HBM-PoC/canvas-line-chart",
+                "x": 756,
+                "y": 216,
+                "width": 72,
+                "height": 72
+            }
         }
     },
     "connections": [
-        {
-            "src": {
-                "process": "randomExample",
-                "port": "numbers"
-            },
-            "tgt": {
-                "process": "probe",
-                "port": "values"
-            },
-            "metadata": {}
-        },
         {
             "src": {
                 "process": "strings/ParseJson_m77ta",
@@ -108,18 +137,7 @@
         },
         {
             "src": {
-                "process": "strings/ParseJson_7mmrj",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "probe",
-                "port": "len_values"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
-                "process": "strings/ParseJson_7mmrj",
+                "process": "N_TIME_STEPS",
                 "port": "out"
             },
             "tgt": {
@@ -144,17 +162,88 @@
             }
         },
         {
-            "data": "#plot-canvas",
+            "src": {
+                "process": "strings/ParseJson_htmcc",
+                "port": "out"
+            },
             "tgt": {
-                "process": "probe",
-                "port": "canvas_selector"
+                "process": "7yl4r_HBM-PoC/HBM-const_3cloh",
+                "port": "value"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "N_TIME_STEPS",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/HBM-const_3cloh",
+                "port": "length"
+            },
+            "metadata": {
+                "route": 0
             }
         },
         {
-            "data": "",
+            "src": {
+                "process": "7yl4r_HBM-PoC/HBM-const_3cloh",
+                "port": "numbers"
+            },
             "tgt": {
-                "process": "probe",
-                "port": "values"
+                "process": "7yl4r_HBM-PoC/HBM-linearAdd_dn5sj",
+                "port": "in_1"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "randomExample",
+                "port": "numbers"
+            },
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/HBM-linearAdd_dn5sj",
+                "port": "in_2"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "7yl4r_HBM-PoC/HBM-linearAdd_dn5sj",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/LOG_4s5l5",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "N_TIME_STEPS",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/canvas-line-chart_2ee7j",
+                "port": "len_values"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "7yl4r_HBM-PoC/HBM-linearAdd_dn5sj",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/canvas-line-chart_2ee7j",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 0
             }
         },
         {
@@ -174,8 +263,22 @@
         {
             "data": "100",
             "tgt": {
-                "process": "strings/ParseJson_7mmrj",
+                "process": "N_TIME_STEPS",
                 "port": "in"
+            }
+        },
+        {
+            "data": "5",
+            "tgt": {
+                "process": "strings/ParseJson_htmcc",
+                "port": "in"
+            }
+        },
+        {
+            "data": "#plot-canvas",
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/canvas-line-chart_2ee7j",
+                "port": "canvas_selector"
             }
         }
     ]
