@@ -57,10 +57,10 @@ class MyComponent extends noflo.Component
     return unless @outPorts.out.isAttached()
     
     if not @in_1? and @in_2
-      @in_1 = [0 for 1..@in_2.length]
+      @in_1 = (0 for [1..@in_2.length])
       console.warn('using 0s for in_1.')
     if not @in_2? and @in_1
-      @in_2 = [0 for 1..@in_1.length]
+      @in_2 = (0 for [1..@in_1.length])
       console.warn('using 0s for in_2.')
     else if @in_1.length != @in_2.length
       throw Error('input arrays must be same length, ' +
