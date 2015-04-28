@@ -9,7 +9,29 @@
     },
     "inports": {},
     "outports": {},
-    "groups": [],
+    "groups": [
+        {
+            "name": "context",
+            "nodes": [
+                "7yl4r_HBM-PoC/HBM-const_3cloh",
+                "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b",
+                "randomExample"
+            ],
+            "metadata": {
+                "description": "information from the agent environment"
+            }
+        },
+        {
+            "name": "state",
+            "nodes": [
+                "7yl4r_HBM-PoC/HBM-linearAdd_dn5sj",
+                "7yl4r_HBM-PoC/HBM-linearAdd_uvgwd"
+            ],
+            "metadata": {
+                "description": "the agent's internal state"
+            }
+        }
+    ],
     "processes": {
         "randomExample": {
             "component": "canvas/MakeRandom",
@@ -75,8 +97,8 @@
             "component": "7yl4r_HBM-PoC/HBM-linearAdd",
             "metadata": {
                 "label": "7yl4r_HBM-PoC/HBM-linearAdd",
-                "x": 468,
-                "y": 180,
+                "x": 540,
+                "y": 216,
                 "width": 72,
                 "height": 72
             }
@@ -85,8 +107,8 @@
             "component": "7yl4r_HBM-PoC/probe",
             "metadata": {
                 "label": "7yl4r_HBM-PoC/probe",
-                "x": 900,
-                "y": 72,
+                "x": 972,
+                "y": 108,
                 "width": 72,
                 "height": 72
             }
@@ -95,7 +117,7 @@
             "component": "7yl4r_HBM-PoC/HBM-squareWaveGen",
             "metadata": {
                 "label": "7yl4r_HBM-PoC/HBM-squareWaveGen",
-                "x": 396,
+                "x": 288,
                 "y": 396,
                 "width": 72,
                 "height": 72
@@ -106,7 +128,7 @@
             "metadata": {
                 "label": "7yl4r_HBM-PoC/HBM-linearAdd",
                 "x": 684,
-                "y": 288,
+                "y": 360,
                 "width": 72,
                 "height": 72
             }
