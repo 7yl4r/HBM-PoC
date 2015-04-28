@@ -2,8 +2,10 @@
     "properties": {
         "name": "probe",
         "environment": {
-            "type": "noflo-browser"
-        }
+            "type": "noflo-browser",
+            "content": ""
+        },
+        "icon": "eyedropper"
     },
     "inports": {
         "len_values": {
