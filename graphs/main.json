@@ -75,7 +75,7 @@
             "component": "7yl4r_HBM-PoC/HBM-linearAdd",
             "metadata": {
                 "label": "7yl4r_HBM-PoC/HBM-linearAdd",
-                "x": 576,
+                "x": 504,
                 "y": 144,
                 "width": 72,
                 "height": 72
@@ -85,8 +85,28 @@
             "component": "7yl4r_HBM-PoC/probe",
             "metadata": {
                 "label": "7yl4r_HBM-PoC/probe",
-                "x": 756,
-                "y": 108,
+                "x": 1008,
+                "y": 36,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b": {
+            "component": "7yl4r_HBM-PoC/HBM-squareWaveGen",
+            "metadata": {
+                "label": "7yl4r_HBM-PoC/HBM-squareWaveGen",
+                "x": 396,
+                "y": 324,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "7yl4r_HBM-PoC/HBM-linearAdd_uvgwd": {
+            "component": "7yl4r_HBM-PoC/HBM-linearAdd",
+            "metadata": {
+                "label": "7yl4r_HBM-PoC/HBM-linearAdd",
+                "x": 684,
+                "y": 288,
                 "width": 72,
                 "height": 72
             }
@@ -102,7 +122,9 @@
                 "process": "randomExample",
                 "port": "min"
             },
-            "metadata": {}
+            "metadata": {
+                "route": 1
+            }
         },
         {
             "src": {
@@ -113,7 +135,9 @@
                 "process": "randomExample",
                 "port": "max"
             },
-            "metadata": {}
+            "metadata": {
+                "route": 1
+            }
         },
         {
             "src": {
@@ -125,7 +149,7 @@
                 "port": "count"
             },
             "metadata": {
-                "route": 0
+                "route": 6
             }
         },
         {
@@ -137,7 +161,9 @@
                 "process": "7yl4r_HBM-PoC/HBM-const_3cloh",
                 "port": "value"
             },
-            "metadata": {}
+            "metadata": {
+                "route": 7
+            }
         },
         {
             "src": {
@@ -149,7 +175,7 @@
                 "port": "length"
             },
             "metadata": {
-                "route": 0
+                "route": 6
             }
         },
         {
@@ -161,7 +187,9 @@
                 "process": "7yl4r_HBM-PoC/HBM-linearAdd_dn5sj",
                 "port": "in_1"
             },
-            "metadata": {}
+            "metadata": {
+                "route": 7
+            }
         },
         {
             "src": {
@@ -173,7 +201,7 @@
                 "port": "in_2"
             },
             "metadata": {
-                "route": 0
+                "route": 1
             }
         },
         {
@@ -186,7 +214,7 @@
                 "port": "len_values"
             },
             "metadata": {
-                "route": 0
+                "route": 6
             }
         },
         {
@@ -195,23 +223,50 @@
                 "port": "out"
             },
             "tgt": {
-                "process": "7yl4r_HBM-PoC/probe_t9c80",
-                "port": "in"
+                "process": "7yl4r_HBM-PoC/HBM-linearAdd_uvgwd",
+                "port": "in_1"
             },
-            "metadata": {}
-        },
-        {
-            "data": "150",
-            "tgt": {
-                "process": "strings/ParseJson_np62o",
-                "port": "in"
+            "metadata": {
+                "route": 9
             }
         },
         {
-            "data": "50",
+            "src": {
+                "process": "N_TIME_STEPS",
+                "port": "out"
+            },
             "tgt": {
-                "process": "strings/ParseJson_m77ta",
+                "process": "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b",
+                "port": "len"
+            },
+            "metadata": {
+                "route": 6
+            }
+        },
+        {
+            "src": {
+                "process": "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/HBM-linearAdd_uvgwd",
+                "port": "in_2"
+            },
+            "metadata": {
+                "route": 4
+            }
+        },
+        {
+            "src": {
+                "process": "7yl4r_HBM-PoC/HBM-linearAdd_uvgwd",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/probe_t9c80",
                 "port": "in"
+            },
+            "metadata": {
+                "route": null
             }
         },
         {
@@ -233,6 +288,20 @@
             "tgt": {
                 "process": "7yl4r_HBM-PoC/probe_t9c80",
                 "port": "canvas_selector"
+            }
+        },
+        {
+            "data": "1",
+            "tgt": {
+                "process": "strings/ParseJson_m77ta",
+                "port": "in"
+            }
+        },
+        {
+            "data": "20",
+            "tgt": {
+                "process": "strings/ParseJson_np62o",
+                "port": "in"
             }
         }
     ]
