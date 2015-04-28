@@ -2,7 +2,7 @@ noflo = require 'noflo'
 
 class HBMConst extends noflo.Component
   description: "Creates array of given length with given value"
-  # icon
+  icon: "long-arrow-right"
 
   constructor:  ->
     @inPorts = new noflo.InPorts
