@@ -2,7 +2,7 @@ noflo = require 'noflo'
 
 class MyComponent extends noflo.Component
   description: "Combines two inflows linearly."
-  # icon
+  icon: "square-o"
 
   constructor:  ->
     @high = 10
