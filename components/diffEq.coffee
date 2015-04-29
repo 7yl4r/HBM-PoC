@@ -89,7 +89,7 @@ Integrator = (f)->
 
 class MyComponent extends noflo.Component
   description: "Combines two inflows using a 1st-order differential equation."
-  icon: "plus"
+  icon: "tint"
 
   constructor:  ->
     @STEP = .25  # sub-time step for integrator
@@ -138,6 +138,15 @@ class MyComponent extends noflo.Component
       c_2:
         datatype: 'number'
         required: false
+      theta_1:
+        datatype: 'number'
+        required: false
+      theta_2:
+        datatype: 'number'
+        required: false
+      tao:
+        datatype: 'number'
+        required: false
 
     @outPorts = new noflo.OutPorts
       out:
@@ -154,6 +163,15 @@ class MyComponent extends noflo.Component
       @compute()
     @inPorts.c_2.on 'data', (data) =>
       @c_2 = data
+      @compute()
+    @inPorts.theta_1.on 'data', (data) =>
+      @theta_1 = data
+      @compute()
+    @inPorts.theta_2.on 'data', (data) =>
+      @theta_2 = data
+      @compute()
+    @inPorts.tao.on 'data', (data) =>
+      @tao = data
       @compute()
 
   # function to get value @ t from dependency
