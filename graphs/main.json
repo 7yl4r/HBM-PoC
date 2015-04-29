@@ -3,7 +3,7 @@
         "name": "main",
         "environment": {
             "type": "noflo-browser",
-            "content": "Selected output: <bold>randomExample</bold>\n<canvas id=\"plot-canvas\" width=\"200\" height=\"200\"></canvas>\nmin=0, max=200"
+            "content": "probe reading:\n<div style=\"position: absolute; top:1.5em; right:0;\">\n  <-0\n  <div style=\"position: relative; top:180px; right:0;\">\n    <-200\n  </div>\n</div>\n<br><br>\n<canvas id=\"plot-canvas\" width=\"200\" height=\"200\"></canvas>\n<div>\n  t=0days    . . .\n  <span style=\"position: absolute; right: 2em\">\n    . . . 100days    \n  </span>\n</div>\n"
         },
         "icon": ""
     },
@@ -20,16 +20,6 @@
             "metadata": {
                 "description": "information from the agent environment"
             }
-        },
-        {
-            "name": "state",
-            "nodes": [
-                "7yl4r_HBM-PoC/HBM-linearAdd_dn5sj",
-                "7yl4r_HBM-PoC/HBM-linearAdd_uvgwd"
-            ],
-            "metadata": {
-                "description": "the agent's internal state"
-            }
         }
     ],
     "processes": {
@@ -43,52 +33,12 @@
                 "height": 72
             }
         },
-        "strings/ParseJson_m77ta": {
-            "component": "strings/ParseJson",
-            "metadata": {
-                "label": "strings/ParseJson",
-                "x": 36,
-                "y": 252,
-                "width": 72,
-                "height": 72
-            }
-        },
-        "strings/ParseJson_np62o": {
-            "component": "strings/ParseJson",
-            "metadata": {
-                "label": "strings/ParseJson",
-                "x": 36,
-                "y": 360,
-                "width": 72,
-                "height": 72
-            }
-        },
-        "N_TIME_STEPS": {
-            "component": "strings/ParseJson",
-            "metadata": {
-                "label": "N_TIME_STEPS",
-                "x": 36,
-                "y": 144,
-                "width": 72,
-                "height": 72
-            }
-        },
         "7yl4r_HBM-PoC/HBM-const_3cloh": {
             "component": "7yl4r_HBM-PoC/HBM-const",
             "metadata": {
                 "label": "7yl4r_HBM-PoC/HBM-const",
                 "x": 288,
                 "y": 72,
-                "width": 72,
-                "height": 72
-            }
-        },
-        "strings/ParseJson_htmcc": {
-            "component": "strings/ParseJson",
-            "metadata": {
-                "label": "strings/ParseJson",
-                "x": 36,
-                "y": 36,
                 "width": 72,
                 "height": 72
             }
@@ -108,7 +58,7 @@
             "metadata": {
                 "label": "7yl4r_HBM-PoC/probe",
                 "x": 972,
-                "y": 108,
+                "y": 216,
                 "width": 72,
                 "height": 72
             }
@@ -127,8 +77,18 @@
             "component": "7yl4r_HBM-PoC/HBM-linearAdd",
             "metadata": {
                 "label": "7yl4r_HBM-PoC/HBM-linearAdd",
-                "x": 684,
-                "y": 360,
+                "x": 756,
+                "y": 324,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "7yl4r_HBM-PoC/diffEq_psgci": {
+            "component": "7yl4r_HBM-PoC/diffEq",
+            "metadata": {
+                "label": "7yl4r_HBM-PoC/diffEq",
+                "x": 540,
+                "y": 396,
                 "width": 72,
                 "height": 72
             }
@@ -137,71 +97,6 @@
     "connections": [
         {
             "src": {
-                "process": "strings/ParseJson_m77ta",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "randomExample",
-                "port": "min"
-            },
-            "metadata": {
-                "route": 1
-            }
-        },
-        {
-            "src": {
-                "process": "strings/ParseJson_np62o",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "randomExample",
-                "port": "max"
-            },
-            "metadata": {
-                "route": 1
-            }
-        },
-        {
-            "src": {
-                "process": "N_TIME_STEPS",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "randomExample",
-                "port": "count"
-            },
-            "metadata": {
-                "route": 6
-            }
-        },
-        {
-            "src": {
-                "process": "strings/ParseJson_htmcc",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "7yl4r_HBM-PoC/HBM-const_3cloh",
-                "port": "value"
-            },
-            "metadata": {
-                "route": 7
-            }
-        },
-        {
-            "src": {
-                "process": "N_TIME_STEPS",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "7yl4r_HBM-PoC/HBM-const_3cloh",
-                "port": "length"
-            },
-            "metadata": {
-                "route": 6
-            }
-        },
-        {
-            "src": {
                 "process": "7yl4r_HBM-PoC/HBM-const_3cloh",
                 "port": "numbers"
             },
@@ -215,67 +110,65 @@
         },
         {
             "src": {
-                "process": "randomExample",
-                "port": "numbers"
+                "process": "7yl4r_HBM-PoC/HBM-linearAdd_dn5sj",
+                "port": "out"
             },
             "tgt": {
-                "process": "7yl4r_HBM-PoC/HBM-linearAdd_dn5sj",
+                "process": "7yl4r_HBM-PoC/HBM-linearAdd_uvgwd",
+                "port": "in_1"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/diffEq_psgci",
+                "port": "in_1"
+            },
+            "metadata": {
+                "route": 4
+            }
+        },
+        {
+            "src": {
+                "process": "7yl4r_HBM-PoC/diffEq_psgci",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/HBM-linearAdd_uvgwd",
                 "port": "in_2"
             },
-            "metadata": {
-                "route": 1
-            }
+            "metadata": {}
         },
         {
             "src": {
-                "process": "N_TIME_STEPS",
+                "process": "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b",
                 "port": "out"
             },
             "tgt": {
-                "process": "7yl4r_HBM-PoC/probe_t9c80",
-                "port": "len_values"
-            },
-            "metadata": {
-                "route": 6
-            }
-        },
-        {
-            "src": {
                 "process": "7yl4r_HBM-PoC/HBM-linearAdd_dn5sj",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "7yl4r_HBM-PoC/HBM-linearAdd_uvgwd",
-                "port": "in_1"
-            },
-            "metadata": {
-                "route": 9
-            }
-        },
-        {
-            "src": {
-                "process": "N_TIME_STEPS",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b",
-                "port": "len"
-            },
-            "metadata": {
-                "route": 6
-            }
-        },
-        {
-            "src": {
-                "process": "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "7yl4r_HBM-PoC/HBM-linearAdd_uvgwd",
                 "port": "in_2"
             },
             "metadata": {
                 "route": 4
+            }
+        },
+        {
+            "src": {
+                "process": "randomExample",
+                "port": "numbers"
+            },
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/diffEq_psgci",
+                "port": "in_2"
+            },
+            "metadata": {
+                "route": 0
             }
         },
         {
@@ -292,20 +185,6 @@
             }
         },
         {
-            "data": "100",
-            "tgt": {
-                "process": "N_TIME_STEPS",
-                "port": "in"
-            }
-        },
-        {
-            "data": "5",
-            "tgt": {
-                "process": "strings/ParseJson_htmcc",
-                "port": "in"
-            }
-        },
-        {
             "data": "#plot-canvas",
             "tgt": {
                 "process": "7yl4r_HBM-PoC/probe_t9c80",
@@ -313,17 +192,80 @@
             }
         },
         {
-            "data": "1",
+            "data": 20,
             "tgt": {
-                "process": "strings/ParseJson_m77ta",
-                "port": "in"
+                "process": "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b",
+                "port": "period"
             }
         },
         {
-            "data": "20",
+            "data": 1,
             "tgt": {
-                "process": "strings/ParseJson_np62o",
-                "port": "in"
+                "process": "randomExample",
+                "port": "min"
+            }
+        },
+        {
+            "data": 10,
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/HBM-const_3cloh",
+                "port": "value"
+            }
+        },
+        {
+            "data": 50,
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b",
+                "port": "low"
+            }
+        },
+        {
+            "data": 10,
+            "tgt": {
+                "process": "randomExample",
+                "port": "max"
+            }
+        },
+        {
+            "data": 100,
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/probe_t9c80",
+                "port": "len_values"
+            }
+        },
+        {
+            "data": 100,
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/HBM-const_3cloh",
+                "port": "length"
+            }
+        },
+        {
+            "data": "100",
+            "tgt": {
+                "process": "randomExample",
+                "port": "count"
+            }
+        },
+        {
+            "data": 100,
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b",
+                "port": "len"
+            }
+        },
+        {
+            "data": 100,
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b",
+                "port": "high"
+            }
+        },
+        {
+            "data": 5,
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/diffEq_psgci",
+                "port": "theta_1"
             }
         }
     ]

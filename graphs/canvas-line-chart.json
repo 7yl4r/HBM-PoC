@@ -13,8 +13,8 @@
             "process": "canvas/MakeRange_lb9hw",
             "port": "count",
             "metadata": {
-                "x": -144,
-                "y": 252,
+                "x": 36,
+                "y": 216,
                 "width": 72,
                 "height": 72
             }
@@ -23,8 +23,8 @@
             "process": "dom/GetElement_an98u",
             "port": "selector",
             "metadata": {
-                "x": 252,
-                "y": 36,
+                "x": 36,
+                "y": 504,
                 "width": 72,
                 "height": 72
             }
@@ -33,22 +33,47 @@
             "process": "canvas/MakePoint_fkzuq",
             "port": "y",
             "metadata": {
-                "x": 0,
-                "y": 108,
+                "x": 36,
+                "y": 324,
                 "width": 72,
                 "height": 72
             }
         }
     },
     "outports": {},
-    "groups": [],
+    "groups": [
+        {
+            "name": "x values",
+            "nodes": [
+                "canvas/Fill_cbdq5",
+                "canvas/MakeGrid_ref0c",
+                "canvas/MakeRange_i62n8",
+                "canvas/MakeRectangle_1rmr9"
+            ],
+            "metadata": {
+                "description": ""
+            }
+        },
+        {
+            "name": "y values",
+            "nodes": [
+                "canvas/MakePath_slkr2",
+                "canvas/MakePoint_fkzuq",
+                "canvas/MakeRange_lb9hw",
+                "canvas/Stroke_3m3hk"
+            ],
+            "metadata": {
+                "description": ""
+            }
+        }
+    ],
     "processes": {
         "canvas/Draw_ps7an": {
             "component": "canvas/Draw",
             "metadata": {
                 "label": "canvas/Draw",
-                "x": 612,
-                "y": 252,
+                "x": 756,
+                "y": 360,
                 "width": 72,
                 "height": 72
             }
@@ -57,8 +82,8 @@
             "component": "canvas/Fill",
             "metadata": {
                 "label": "canvas/Fill",
-                "x": 468,
-                "y": 432,
+                "x": 576,
+                "y": 36,
                 "width": 72,
                 "height": 72
             }
@@ -67,8 +92,8 @@
             "component": "canvas/MakeRectangle",
             "metadata": {
                 "label": "canvas/MakeRectangle",
-                "x": 324,
-                "y": 432,
+                "x": 432,
+                "y": 36,
                 "width": 72,
                 "height": 72
             }
@@ -77,7 +102,7 @@
             "component": "canvas/MakeRange",
             "metadata": {
                 "label": "canvas/MakeRange",
-                "x": 0,
+                "x": 180,
                 "y": 252,
                 "width": 72,
                 "height": 72
@@ -87,8 +112,8 @@
             "component": "canvas/Stroke",
             "metadata": {
                 "label": "canvas/Stroke",
-                "x": 432,
-                "y": 216,
+                "x": 576,
+                "y": 288,
                 "width": 72,
                 "height": 72
             }
@@ -97,8 +122,8 @@
             "component": "canvas/MakePoint",
             "metadata": {
                 "label": "canvas/MakePoint",
-                "x": 144,
-                "y": 216,
+                "x": 324,
+                "y": 288,
                 "width": 72,
                 "height": 72
             }
@@ -107,8 +132,8 @@
             "component": "canvas/MakePath",
             "metadata": {
                 "label": "canvas/MakePath",
-                "x": 288,
-                "y": 216,
+                "x": 432,
+                "y": 288,
                 "width": 72,
                 "height": 72
             }
@@ -117,8 +142,8 @@
             "component": "canvas/MakeGrid",
             "metadata": {
                 "label": "canvas/MakeGrid",
-                "x": 144,
-                "y": 432,
+                "x": 324,
+                "y": 72,
                 "width": 72,
                 "height": 72
             }
@@ -127,8 +152,8 @@
             "component": "canvas/MakeRange",
             "metadata": {
                 "label": "canvas/MakeRange",
-                "x": 0,
-                "y": 432,
+                "x": 180,
+                "y": 72,
                 "width": 72,
                 "height": 72
             }
@@ -137,8 +162,8 @@
             "component": "dom/GetElement",
             "metadata": {
                 "label": "dom/GetElement",
-                "x": 432,
-                "y": 72,
+                "x": 360,
+                "y": 468,
                 "width": 72,
                 "height": 72
             }
@@ -155,7 +180,7 @@
                 "port": "commands"
             },
             "metadata": {
-                "route": 9
+                "route": 0
             }
         },
         {
@@ -261,8 +286,7 @@
             "tgt": {
                 "process": "canvas/Draw_ps7an",
                 "port": "canvas"
-            },
-            "metadata": {}
+            }
         },
         {
             "data": 0,
