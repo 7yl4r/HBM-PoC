@@ -13,42 +13,42 @@
         {
             "name": "context",
             "nodes": [
-                "7yl4r_HBM-PoC/HBM-const_3cloh",
-                "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b",
-                "randomExample"
+                "attitude towards PA",
+                "subjective norms of PA",
+                "perceived behavioral control"
             ],
             "metadata": {
                 "description": "information from the agent environment"
             }
+        },
+        {
+            "name": "state",
+            "nodes": [
+                "PA behavior",
+                "PA intention"
+            ],
+            "metadata": {
+                "description": "internal state of the agent"
+            }
         }
     ],
     "processes": {
-        "randomExample": {
+        "perceived behavioral control": {
             "component": "canvas/MakeRandom",
             "metadata": {
-                "label": "randomExample",
+                "label": "perceived behavioral control",
                 "x": 288,
-                "y": 216,
+                "y": 396,
                 "width": 72,
                 "height": 72
             }
         },
-        "7yl4r_HBM-PoC/HBM-const_3cloh": {
+        "attitude towards PA": {
             "component": "7yl4r_HBM-PoC/HBM-const",
             "metadata": {
-                "label": "7yl4r_HBM-PoC/HBM-const",
+                "label": "attitude towards PA",
                 "x": 288,
-                "y": 72,
-                "width": 72,
-                "height": 72
-            }
-        },
-        "7yl4r_HBM-PoC/HBM-linearAdd_dn5sj": {
-            "component": "7yl4r_HBM-PoC/HBM-linearAdd",
-            "metadata": {
-                "label": "7yl4r_HBM-PoC/HBM-linearAdd",
-                "x": 540,
-                "y": 216,
+                "y": 108,
                 "width": 72,
                 "height": 72
             }
@@ -57,114 +57,103 @@
             "component": "7yl4r_HBM-PoC/probe",
             "metadata": {
                 "label": "7yl4r_HBM-PoC/probe",
-                "x": 972,
-                "y": 216,
+                "x": 936,
+                "y": 252,
                 "width": 72,
                 "height": 72
             }
         },
-        "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b": {
+        "subjective norms of PA": {
             "component": "7yl4r_HBM-PoC/HBM-squareWaveGen",
             "metadata": {
-                "label": "7yl4r_HBM-PoC/HBM-squareWaveGen",
+                "label": "subjective norms of PA",
                 "x": 288,
-                "y": 396,
+                "y": 252,
                 "width": 72,
                 "height": 72
             }
         },
-        "7yl4r_HBM-PoC/HBM-linearAdd_uvgwd": {
-            "component": "7yl4r_HBM-PoC/HBM-linearAdd",
-            "metadata": {
-                "label": "7yl4r_HBM-PoC/HBM-linearAdd",
-                "x": 756,
-                "y": 324,
-                "width": 72,
-                "height": 72
-            }
-        },
-        "7yl4r_HBM-PoC/diffEq_psgci": {
+        "PA intention": {
             "component": "7yl4r_HBM-PoC/diffEq",
             "metadata": {
-                "label": "7yl4r_HBM-PoC/diffEq",
+                "label": "PA intention",
                 "x": 540,
-                "y": 396,
+                "y": 180,
                 "width": 72,
-                "height": 72
+                "height": 84
+            }
+        },
+        "PA behavior": {
+            "component": "7yl4r_HBM-PoC/diffEq",
+            "metadata": {
+                "label": "PA behavior",
+                "x": 720,
+                "y": 324,
+                "width": 72,
+                "height": 84
             }
         }
     },
     "connections": [
         {
             "src": {
-                "process": "7yl4r_HBM-PoC/HBM-const_3cloh",
+                "process": "attitude towards PA",
                 "port": "numbers"
             },
             "tgt": {
-                "process": "7yl4r_HBM-PoC/HBM-linearAdd_dn5sj",
+                "process": "PA intention",
                 "port": "in_1"
             },
             "metadata": {
-                "route": 7
+                "route": null
             }
         },
         {
             "src": {
-                "process": "7yl4r_HBM-PoC/HBM-linearAdd_dn5sj",
+                "process": "subjective norms of PA",
                 "port": "out"
             },
             "tgt": {
-                "process": "7yl4r_HBM-PoC/HBM-linearAdd_uvgwd",
-                "port": "in_1"
-            },
-            "metadata": {
-                "route": 0
-            }
-        },
-        {
-            "src": {
-                "process": "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "7yl4r_HBM-PoC/diffEq_psgci",
-                "port": "in_1"
-            },
-            "metadata": {
-                "route": 4
-            }
-        },
-        {
-            "src": {
-                "process": "7yl4r_HBM-PoC/diffEq_psgci",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "7yl4r_HBM-PoC/HBM-linearAdd_uvgwd",
-                "port": "in_2"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
-                "process": "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "7yl4r_HBM-PoC/HBM-linearAdd_dn5sj",
+                "process": "PA intention",
                 "port": "in_2"
             },
             "metadata": {
-                "route": 4
+                "route": null
             }
         },
         {
             "src": {
-                "process": "randomExample",
+                "process": "perceived behavioral control",
                 "port": "numbers"
             },
             "tgt": {
-                "process": "7yl4r_HBM-PoC/diffEq_psgci",
+                "process": "PA intention",
+                "port": "in_3"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "PA intention",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "PA behavior",
+                "port": "in_1"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "perceived behavioral control",
+                "port": "numbers"
+            },
+            "tgt": {
+                "process": "PA behavior",
                 "port": "in_2"
             },
             "metadata": {
@@ -173,7 +162,7 @@
         },
         {
             "src": {
-                "process": "7yl4r_HBM-PoC/HBM-linearAdd_uvgwd",
+                "process": "PA intention",
                 "port": "out"
             },
             "tgt": {
@@ -194,36 +183,15 @@
         {
             "data": 20,
             "tgt": {
-                "process": "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b",
+                "process": "subjective norms of PA",
                 "port": "period"
-            }
-        },
-        {
-            "data": 1,
-            "tgt": {
-                "process": "randomExample",
-                "port": "min"
-            }
-        },
-        {
-            "data": 10,
-            "tgt": {
-                "process": "7yl4r_HBM-PoC/HBM-const_3cloh",
-                "port": "value"
             }
         },
         {
             "data": 50,
             "tgt": {
-                "process": "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b",
+                "process": "subjective norms of PA",
                 "port": "low"
-            }
-        },
-        {
-            "data": 10,
-            "tgt": {
-                "process": "randomExample",
-                "port": "max"
             }
         },
         {
@@ -236,36 +204,50 @@
         {
             "data": 100,
             "tgt": {
-                "process": "7yl4r_HBM-PoC/HBM-const_3cloh",
+                "process": "attitude towards PA",
                 "port": "length"
             }
         },
         {
             "data": "100",
             "tgt": {
-                "process": "randomExample",
+                "process": "perceived behavioral control",
                 "port": "count"
             }
         },
         {
             "data": 100,
             "tgt": {
-                "process": "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b",
+                "process": "subjective norms of PA",
                 "port": "len"
             }
         },
         {
             "data": 100,
             "tgt": {
-                "process": "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b",
+                "process": "subjective norms of PA",
                 "port": "high"
             }
         },
         {
-            "data": 5,
+            "data": 20,
             "tgt": {
-                "process": "7yl4r_HBM-PoC/diffEq_psgci",
-                "port": "theta_1"
+                "process": "perceived behavioral control",
+                "port": "min"
+            }
+        },
+        {
+            "data": 50,
+            "tgt": {
+                "process": "perceived behavioral control",
+                "port": "max"
+            }
+        },
+        {
+            "data": 50,
+            "tgt": {
+                "process": "attitude towards PA",
+                "port": "value"
             }
         }
     ]
