@@ -57,8 +57,8 @@
             "component": "7yl4r_HBM-PoC/probe",
             "metadata": {
                 "label": "7yl4r_HBM-PoC/probe",
-                "x": 936,
-                "y": 252,
+                "x": 972,
+                "y": 324,
                 "width": 72,
                 "height": 72
             }
@@ -105,7 +105,7 @@
                 "port": "in_1"
             },
             "metadata": {
-                "route": null
+                "route": 1
             }
         },
         {
@@ -118,7 +118,7 @@
                 "port": "in_2"
             },
             "metadata": {
-                "route": null
+                "route": 4
             }
         },
         {
@@ -131,7 +131,7 @@
                 "port": "in_3"
             },
             "metadata": {
-                "route": null
+                "route": 7
             }
         },
         {
@@ -144,7 +144,7 @@
                 "port": "in_1"
             },
             "metadata": {
-                "route": null
+                "route": 3
             }
         },
         {
@@ -157,12 +157,12 @@
                 "port": "in_2"
             },
             "metadata": {
-                "route": 0
+                "route": 7
             }
         },
         {
             "src": {
-                "process": "PA intention",
+                "process": "PA behavior",
                 "port": "out"
             },
             "tgt": {
