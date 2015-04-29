@@ -20,16 +20,6 @@
             "metadata": {
                 "description": "information from the agent environment"
             }
-        },
-        {
-            "name": "state",
-            "nodes": [
-                "7yl4r_HBM-PoC/HBM-linearAdd_dn5sj",
-                "7yl4r_HBM-PoC/HBM-linearAdd_uvgwd"
-            ],
-            "metadata": {
-                "description": "the agent's internal state"
-            }
         }
     ],
     "processes": {
@@ -107,7 +97,7 @@
             "component": "7yl4r_HBM-PoC/probe",
             "metadata": {
                 "label": "7yl4r_HBM-PoC/probe",
-                "x": 972,
+                "x": 828,
                 "y": 108,
                 "width": 72,
                 "height": 72
@@ -127,8 +117,18 @@
             "component": "7yl4r_HBM-PoC/HBM-linearAdd",
             "metadata": {
                 "label": "7yl4r_HBM-PoC/HBM-linearAdd",
-                "x": 684,
-                "y": 360,
+                "x": 756,
+                "y": 324,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "7yl4r_HBM-PoC/diffEq_psgci": {
+            "component": "7yl4r_HBM-PoC/diffEq",
+            "metadata": {
+                "label": "7yl4r_HBM-PoC/diffEq",
+                "x": 540,
+                "y": 396,
                 "width": 72,
                 "height": 72
             }
@@ -215,19 +215,6 @@
         },
         {
             "src": {
-                "process": "randomExample",
-                "port": "numbers"
-            },
-            "tgt": {
-                "process": "7yl4r_HBM-PoC/HBM-linearAdd_dn5sj",
-                "port": "in_2"
-            },
-            "metadata": {
-                "route": 1
-            }
-        },
-        {
-            "src": {
                 "process": "N_TIME_STEPS",
                 "port": "out"
             },
@@ -249,7 +236,7 @@
                 "port": "in_1"
             },
             "metadata": {
-                "route": 9
+                "route": 0
             }
         },
         {
@@ -271,7 +258,31 @@
                 "port": "out"
             },
             "tgt": {
+                "process": "7yl4r_HBM-PoC/diffEq_psgci",
+                "port": "in_1"
+            },
+            "metadata": {
+                "route": 4
+            }
+        },
+        {
+            "src": {
+                "process": "7yl4r_HBM-PoC/diffEq_psgci",
+                "port": "out"
+            },
+            "tgt": {
                 "process": "7yl4r_HBM-PoC/HBM-linearAdd_uvgwd",
+                "port": "in_2"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/HBM-linearAdd_dn5sj",
                 "port": "in_2"
             },
             "metadata": {
@@ -280,12 +291,25 @@
         },
         {
             "src": {
-                "process": "7yl4r_HBM-PoC/HBM-linearAdd_uvgwd",
+                "process": "7yl4r_HBM-PoC/diffEq_psgci",
                 "port": "out"
             },
             "tgt": {
                 "process": "7yl4r_HBM-PoC/probe_t9c80",
                 "port": "in"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "7yl4r_HBM-PoC/HBM-const_3cloh",
+                "port": "numbers"
+            },
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/diffEq_psgci",
+                "port": "in_2"
             },
             "metadata": {
                 "route": null
@@ -324,6 +348,48 @@
             "tgt": {
                 "process": "strings/ParseJson_np62o",
                 "port": "in"
+            }
+        },
+        {
+            "data": 20,
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b",
+                "port": "period"
+            }
+        },
+        {
+            "data": 250,
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b",
+                "port": "high"
+            }
+        },
+        {
+            "data": 100,
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/HBM-squareWaveGen_1pv0b",
+                "port": "low"
+            }
+        },
+        {
+            "data": 1,
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/diffEq_psgci",
+                "port": "theta_2"
+            }
+        },
+        {
+            "data": 10,
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/diffEq_psgci",
+                "port": "c_2"
+            }
+        },
+        {
+            "data": 0.7,
+            "tgt": {
+                "process": "7yl4r_HBM-PoC/diffEq_psgci",
+                "port": "tao"
             }
         }
     ]
