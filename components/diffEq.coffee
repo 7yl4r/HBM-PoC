@@ -88,7 +88,8 @@ Integrator = (f)->
 # END INTEGRATOR
 
 class MyComponent extends noflo.Component
-  description: "Combines two inflows using a 1st-order differential equation."
+  description: "Combines inflows using a 1st-order differential equation." +
+               "in_1 required, in_2 & in_3 optional."
   icon: "tint"
 
   constructor:  ->
@@ -121,8 +122,12 @@ class MyComponent extends noflo.Component
 
     @c_1 = 1
     @c_2 = 1
+    @c_3 = 1
+
     @theta_1 = 0
     @theta_2 = 0
+    @theta_3 = 0
+
     @tao = 0.5
 
     @inPorts = new noflo.InPorts
@@ -131,17 +136,26 @@ class MyComponent extends noflo.Component
         required: true
       in_2:
         datatype: 'array'
-        required: true
+        required: false
+      in_3:
+        datatype: 'array'
+        required: false
       c_1:
         datatype: 'number'
         required: false
       c_2:
         datatype: 'number'
         required: false
+      c_3:
+        datatype: 'number'
+        required: false
       theta_1:
         datatype: 'number'
         required: false
       theta_2:
+        datatype: 'number'
+        required: false
+      theta_3:
         datatype: 'number'
         required: false
       tao:
@@ -158,17 +172,26 @@ class MyComponent extends noflo.Component
     @inPorts.in_2.on 'data', (data) =>
       @in_2 = data
       @compute()
+    @inPorts.in_3.on 'data', (data) =>
+      @in_3 = data
+      @compute()
     @inPorts.c_1.on 'data', (data) =>
       @c_1 = data
       @compute()
     @inPorts.c_2.on 'data', (data) =>
       @c_2 = data
       @compute()
+    @inPorts.c_3.on 'data', (data) =>
+      @c_3 = data
+      @compute()
     @inPorts.theta_1.on 'data', (data) =>
       @theta_1 = data
       @compute()
     @inPorts.theta_2.on 'data', (data) =>
       @theta_2 = data
+      @compute()
+    @inPorts.theta_3.on 'data', (data) =>
+      @theta_3 = data
       @compute()
     @inPorts.tao.on 'data', (data) =>
       @tao = data
@@ -181,13 +204,19 @@ class MyComponent extends noflo.Component
 
   compute: ->
     return unless @outPorts.out.isAttached()
-    return unless @in_1? and @in_2?
+    return unless @in_1?
 
-    if @in_1.length != @in_2.length
+    if not in_2?
+      @in_2 = (0 for [1..@in_1.length])
+    if not in_3?
+      @in_3 = (0 for [1..@in_1.length])
+
+
+    if @in_1.length != @in_2.length or @in_1.length != @in_3.length
       throw Error('input arrays must be same length, ' +
-          @in_1.length +
-          '!=' +
-          @in_2.length
+          'in_1:', @in_1.length +
+          'in_2:', @in_2.length +
+          'in_3:', @in_3.length
       )
     else
       values = (0 for [1..@in_1.length])
